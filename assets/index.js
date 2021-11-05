@@ -14,13 +14,8 @@ reset.addEventListener("click", () => {
 })
 
 function displayWinner(index) {
-    if(index) {
-        winnerDisplay.textContent = `${boxes[index].textContent} wins!`
-        isGameOver = true
-    } else {
-        winnerDisplay.textContent = "It's a tie!"
-        isGameOver = true
-    }
+    winnerDisplay.textContent = `${boxes[index].textContent} wins!`
+    isGameOver = true
 }
 
 boxes.forEach(box => {
@@ -40,6 +35,7 @@ boxes.forEach(box => {
             playerSpan.classList.add(boxClassToAdd)
             playerSpan.textContent = playerSpanText
             turn++
+            console.log(turn)
         }
 
         // Check for winner and display if found
@@ -59,8 +55,9 @@ boxes.forEach(box => {
             displayWinner(0)
         } else if(boxes[2].textContent === boxes[4].textContent && boxes[2].textContent === boxes[6].textContent && boxes[2].textContent != "") {
             displayWinner(2)
-        } else if(turn >= 9) {
-            displayWinner()
+        } else if(turn === 9) {
+            winnerDisplay.textContent = "It's a tie!"
+            isGameOver = true
         }
     })
 })
