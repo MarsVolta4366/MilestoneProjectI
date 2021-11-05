@@ -13,6 +13,7 @@ reset.addEventListener("click", () => {
     location.reload()
 })
 
+// Display winner and end game
 function displayWinner(index) {
     winnerDisplay.textContent = `${boxes[index].textContent} wins!`
     isGameOver = true
@@ -35,10 +36,9 @@ boxes.forEach(box => {
             playerSpan.classList.add(boxClassToAdd)
             playerSpan.textContent = playerSpanText
             turn++
-            console.log(turn)
         }
 
-        // Check for winner and display if found
+        // Check for winner or tie and display if found
         if(boxes[0].textContent === boxes[1].textContent && boxes[0].textContent === boxes[2].textContent && boxes[0].textContent != "") {
             displayWinner(0)
         } else if(boxes[3].textContent === boxes[4].textContent && boxes[3].textContent === boxes[5].textContent && boxes[3].textContent != "") {
