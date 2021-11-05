@@ -1,36 +1,43 @@
+// Remember to make commits!
+// Add readme file description or whatever it says in canvas prompt
 let boxes = document.querySelectorAll(".box")
 let isPlayerXsTurn = true
 let playerSpan = document.getElementById("playerSpan")
 let winnerDisplay = document.getElementById("winnerDisplay")
 let turn = 0
+let isGameOver = false
 
-function boxClicked(box) {
-    if(isPlayerXsTurn && box.textContent === "") {
-        turn++
-        box.textContent = "X"
-        box.style.color = "var(--x)"
-        isPlayerXsTurn = false
-        playerSpan.classList.remove("playerX")
-        playerSpan.classList.add("playerO")
-        playerSpan.textContent = "O"
-    } else if(!isPlayerXsTurn && box.textContent === "") {
-        turn++
-        box.textContent = "O"
-        box.style.color = "var(--o)"
-        isPlayerXsTurn = true
-        playerSpan.classList.remove("playerO")
-        playerSpan.classList.add("playerX")
-        playerSpan.textContent = "X"
-    }
-
-    // Determine winner and display
-    if(boxes[0].textContent === boxes[1].textContent && boxes[0].textContent === boxes[2].textContent && boxes[0].textContent != "") {
-        winnerDisplay.textContent = `${boxes[0].textContent} wins!`
-        // Make function to remove event listeners?
-        // box.removeEventListener("click", boxClicked(box))
-    }
+function displayWinner(index) {
+    winnerDisplay.textContent = `${boxes[index].textContent} wins!`
+    isGameOver = true
 }
 
 boxes.forEach(box => {
-    box.addEventListener("click", () => boxClicked(box))
+    box.addEventListener("click", (e) => {
+
+        if(box.textContent === "" && !isGameOver) {
+            let boxText = isPlayerXsTurn ? "X":"O"
+            let boxTextColor = isPlayerXsTurn ? "var(--x)":"var(--o)"
+            let boxClassToRemove = isPlayerXsTurn ? "playerX":"playerO"
+            let boxClassToAdd = isPlayerXsTurn ? "playerO":"playerX"
+            let playerSpanText = !isPlayerXsTurn ? "X":"O"
+            isPlayerXsTurn = !isPlayerXsTurn
+
+            box.textContent = boxText
+            box.style.color = boxTextColor
+            playerSpan.classList.remove(boxClassToRemove)
+            playerSpan.classList.add(boxClassToAdd)
+            playerSpan.textContent = playerSpanText
+        }
+
+        // Check rows for winner and display if found
+        if(boxes[0].textContent === boxes[1].textContent && boxes[0].textContent === boxes[2].textContent && boxes[0].textContent != "") {
+            displayWinner(0)
+        }else if(boxes[3].textContent === boxes[4].textContent && boxes[3].textContent === boxes[5].textContent && boxes[3].textContent != "") {
+            displayWinner(3)
+        }else if(boxes[6].textContent === boxes[7].textContent && boxes[6].textContent === boxes[8].textContent && boxes[6].textContent != "") {
+            displayWinner(6)
+        }
+    })
 })
+

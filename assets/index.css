@@ -70,4 +70,5 @@ body {
     background-color: var(--reset);
     border-radius: 20px;
     border: none;
+    cursor: pointer;
 }
