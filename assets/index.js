@@ -6,6 +6,12 @@ let playerSpan = document.getElementById("playerSpan")
 let winnerDisplay = document.getElementById("winnerDisplay")
 let turn = 0
 let isGameOver = false
+let reset = document.getElementById("reset")
+
+// Reset button
+reset.addEventListener("click", () => {
+    location.reload()
+})
 
 function displayWinner(index) {
     if(index) {
@@ -18,7 +24,7 @@ function displayWinner(index) {
 }
 
 boxes.forEach(box => {
-    box.addEventListener("click", (e) => {
+    box.addEventListener("click", () => {
 
         if(box.textContent === "" && !isGameOver) {
             let boxText = isPlayerXsTurn ? "X":"O"
