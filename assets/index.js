@@ -51,6 +51,8 @@ boxes.forEach(box => {
             displayWinner(2)
         } else if(boxes[0].textContent === boxes[4].textContent && boxes[0].textContent === boxes[8].textContent && boxes[0].textContent != "") {
             displayWinner(0)
+        } else if(boxes[2].textContent === boxes[4].textContent && boxes[2].textContent === boxes[6].textContent && boxes[2].textContent != "") {
+            displayWinner(2)
         } else if(turn >= 9) {
             displayWinner()
         }
