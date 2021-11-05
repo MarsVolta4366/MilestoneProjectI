@@ -8,8 +8,13 @@ let turn = 0
 let isGameOver = false
 
 function displayWinner(index) {
-    winnerDisplay.textContent = `${boxes[index].textContent} wins!`
-    isGameOver = true
+    if(index) {
+        winnerDisplay.textContent = `${boxes[index].textContent} wins!`
+        isGameOver = true
+    } else {
+        winnerDisplay.textContent = "It's a tie!"
+        isGameOver = true
+    }
 }
 
 boxes.forEach(box => {
@@ -28,6 +33,7 @@ boxes.forEach(box => {
             playerSpan.classList.remove(boxClassToRemove)
             playerSpan.classList.add(boxClassToAdd)
             playerSpan.textContent = playerSpanText
+            turn++
         }
 
         // Check for winner and display if found
@@ -45,6 +51,8 @@ boxes.forEach(box => {
             displayWinner(2)
         } else if(boxes[0].textContent === boxes[4].textContent && boxes[0].textContent === boxes[8].textContent && boxes[0].textContent != "") {
             displayWinner(0)
+        } else if(turn >= 9) {
+            displayWinner()
         }
     })
 })
