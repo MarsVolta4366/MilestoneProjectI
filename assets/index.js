@@ -43,6 +43,8 @@ boxes.forEach(box => {
             displayWinner(1)
         } else if(boxes[2].textContent === boxes[5].textContent && boxes[2].textContent === boxes[8].textContent && boxes[2].textContent != "") {
             displayWinner(2)
+        } else if(boxes[0].textContent === boxes[4].textContent && boxes[0].textContent === boxes[8].textContent && boxes[0].textContent != "") {
+            displayWinner(0)
         }
     })
 })
