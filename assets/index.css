@@ -1,5 +1,5 @@
 :root {
-    --background: #25283D;
+    --background: #1f2446;
     --x: #98DFEA;
     --o: #07BEB8;
     --reset: #C1292E;
@@ -15,7 +15,7 @@
 
 body {
     /* background-color: var(--background); */
-    background: linear-gradient(-45deg, #8b2303, #49192c, #00076d, #005742);
+    background: linear-gradient(-45deg, #8b2303, #49192c, var(--background), #005742);
     background-size: 400% 400%;
     animation: gradient 15s cubic-bezier(0.3, 0.23, 1, 0.62) infinite;
     height: 100vh;
