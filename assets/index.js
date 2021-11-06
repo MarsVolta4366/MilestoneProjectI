@@ -5,6 +5,9 @@ let winnerDisplay = document.getElementById("winnerDisplay")
 let turn = 0
 let isGameOver = false
 let reset = document.getElementById("reset")
+let resetScores = document.getElementById("resetScores")
+
+displayScores()
 
 // Set volume of background music
 let backgroundMusic = document.getElementById("backgroundMusic")
@@ -15,9 +18,18 @@ reset.addEventListener("click", () => {
     location.reload()
 })
 
-// Display current scores
-displayScores()
+// Reset scores button logic
+resetScores.addEventListener("click", () => {
+    if(localStorage.xScore) {
+        localStorage.removeItem("xScore")
+    }
+    if(localStorage.oScore) {
+        localStorage.removeItem("oScore")
+    }
+    location.reload()
+})
 
+// Display current scores
 function displayScores() {
     let xScore = document.getElementById("xScore")
     let oScore = document.getElementById("oScore")
@@ -29,6 +41,7 @@ function displayScores() {
     }
 }
 
+// Update the winners score in localStorage
 function updateScore(winner) {
     if(winner === "X") {
         if(localStorage.xScore) {

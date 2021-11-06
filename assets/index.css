@@ -93,6 +93,12 @@ body {
     cursor: pointer;
 }
 
+#resetScores {
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .winner {
     animation: pulse 1s ease-in-out 3;
 }
