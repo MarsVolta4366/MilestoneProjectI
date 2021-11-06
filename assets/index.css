@@ -38,6 +38,11 @@ body {
     font-size: 30px;
 }
 
+#scores {
+    text-align: center;
+    font-size: 20px;
+}
+
 #playerDisplay {
     text-align: center;
     font-size: 20px;

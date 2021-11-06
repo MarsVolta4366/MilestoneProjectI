@@ -15,6 +15,37 @@ reset.addEventListener("click", () => {
     location.reload()
 })
 
+// Display current scores
+displayScores()
+
+function displayScores() {
+    let xScore = document.getElementById("xScore")
+    let oScore = document.getElementById("oScore")
+    if(localStorage.xScore) {
+        xScore.textContent = localStorage.xScore
+    }
+    if(localStorage.oScore) {
+        oScore.textContent = localStorage.oScore
+    }
+}
+
+function updateScore(winner) {
+    if(winner === "X") {
+        if(localStorage.xScore) {
+            localStorage.xScore = Number(localStorage.xScore) + 1
+        } else {
+            localStorage.xScore = 1
+        }
+    } else if(winner === "O") {
+        if(localStorage.oScore) {
+            localStorage.oScore = Number(localStorage.oScore) + 1
+        } else {
+            localStorage.oScore = 1
+        }
+    }
+    displayScores()
+}
+
 // Display winner and end game
 function displayWinner(index) {
     winnerDisplay.textContent = `${boxes[index].textContent} wins!`
@@ -23,6 +54,7 @@ function displayWinner(index) {
     applause.play()
     backgroundMusic.pause()
     isGameOver = true
+    updateScore(boxes[index].textContent)
 }
 
 // Fill box with approriate text based on player, switch to other players turn, call checkForWinner()
