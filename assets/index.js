@@ -60,3 +60,7 @@ boxes.forEach(box => {
     })
 })
 
+// Set volume of background music
+let backgroundMusic = document.getElementById("backgroundMusic")
+backgroundMusic.volume = .3
+
