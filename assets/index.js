@@ -14,6 +14,9 @@ reset.addEventListener("click", () => {
 // Display winner and end game
 function displayWinner(index) {
     winnerDisplay.textContent = `${boxes[index].textContent} wins!`
+    let applause = document.getElementById("applause")
+    applause.volume = .3
+    applause.play()
     isGameOver = true
 }
 
