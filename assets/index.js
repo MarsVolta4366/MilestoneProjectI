@@ -43,24 +43,38 @@ function boxClicked(box) {
     checkForWinner()
 }
 
+function highlightWinningBoxes(box1, box2, box3) {
+    boxes[box1].style.background = "#148f34"
+    boxes[box2].style.background = "#148f34"
+    boxes[box3].style.background = "#148f34"
+}
+
 // Check for winner or tie and display if found
 function checkForWinner() {
         if(boxes[0].textContent === boxes[1].textContent && boxes[0].textContent === boxes[2].textContent && boxes[0].textContent != "") {
             displayWinner(0)
+            highlightWinningBoxes(0, 1, 2)
         } else if(boxes[3].textContent === boxes[4].textContent && boxes[3].textContent === boxes[5].textContent && boxes[3].textContent != "") {
             displayWinner(3)
+            highlightWinningBoxes(3, 4, 5)
         } else if(boxes[6].textContent === boxes[7].textContent && boxes[6].textContent === boxes[8].textContent && boxes[6].textContent != "") {
             displayWinner(6)
+            highlightWinningBoxes(6, 7, 8)
         } else if(boxes[0].textContent === boxes[3].textContent && boxes[0].textContent === boxes[6].textContent && boxes[0].textContent != "") {
             displayWinner(0)
+            highlightWinningBoxes(0, 3, 6)
         } else if(boxes[1].textContent === boxes[4].textContent && boxes[1].textContent === boxes[7].textContent && boxes[1].textContent != "") {
             displayWinner(1)
+            highlightWinningBoxes(1, 4, 7)
         } else if(boxes[2].textContent === boxes[5].textContent && boxes[2].textContent === boxes[8].textContent && boxes[2].textContent != "") {
             displayWinner(2)
+            highlightWinningBoxes(2, 5, 8)
         } else if(boxes[0].textContent === boxes[4].textContent && boxes[0].textContent === boxes[8].textContent && boxes[0].textContent != "") {
             displayWinner(0)
+            highlightWinningBoxes(0, 4, 8)
         } else if(boxes[2].textContent === boxes[4].textContent && boxes[2].textContent === boxes[6].textContent && boxes[2].textContent != "") {
             displayWinner(2)
+            highlightWinningBoxes(2, 4, 6)
         } else if(turn === 9) {
             winnerDisplay.textContent = "It's a tie!"
             let crowdCry = document.getElementById("crowdCry")
