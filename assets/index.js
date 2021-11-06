@@ -25,26 +25,26 @@ function displayWinner(index) {
     isGameOver = true
 }
 
-boxes.forEach(box => {
-    box.addEventListener("click", () => {
+// Fill box with approriate text based on player, switch to other players turn
+function boxClicked(box) {
+    let boxText = isPlayerXsTurn ? "X":"O"
+    let boxTextColor = isPlayerXsTurn ? "var(--x)":"var(--o)"
+    let boxClassToRemove = isPlayerXsTurn ? "playerX":"playerO"
+    let boxClassToAdd = isPlayerXsTurn ? "playerO":"playerX"
+    let playerSpanText = !isPlayerXsTurn ? "X":"O"
+    isPlayerXsTurn = !isPlayerXsTurn
 
-        if(box.textContent === "" && !isGameOver) {
-            let boxText = isPlayerXsTurn ? "X":"O"
-            let boxTextColor = isPlayerXsTurn ? "var(--x)":"var(--o)"
-            let boxClassToRemove = isPlayerXsTurn ? "playerX":"playerO"
-            let boxClassToAdd = isPlayerXsTurn ? "playerO":"playerX"
-            let playerSpanText = !isPlayerXsTurn ? "X":"O"
-            isPlayerXsTurn = !isPlayerXsTurn
+    box.textContent = boxText
+    box.style.color = boxTextColor
+    playerSpan.classList.remove(boxClassToRemove)
+    playerSpan.classList.add(boxClassToAdd)
+    playerSpan.textContent = playerSpanText
+    turn++
+    checkForWinner()
+}
 
-            box.textContent = boxText
-            box.style.color = boxTextColor
-            playerSpan.classList.remove(boxClassToRemove)
-            playerSpan.classList.add(boxClassToAdd)
-            playerSpan.textContent = playerSpanText
-            turn++
-        }
-
-        // Check for winner or tie and display if found
+// Check for winner or tie and display if found
+function checkForWinner() {
         if(boxes[0].textContent === boxes[1].textContent && boxes[0].textContent === boxes[2].textContent && boxes[0].textContent != "") {
             displayWinner(0)
         } else if(boxes[3].textContent === boxes[4].textContent && boxes[3].textContent === boxes[5].textContent && boxes[3].textContent != "") {
@@ -68,6 +68,14 @@ boxes.forEach(box => {
             crowdCry.play()
             backgroundMusic.pause()
             isGameOver = true
+        }
+}
+
+boxes.forEach(box => {
+    box.addEventListener("click", () => {
+        // When empty box is clicked call boxClicked
+        if(box.textContent === "" && !isGameOver) {
+            boxClicked(box)
         }
     })
 })
