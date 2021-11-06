@@ -6,6 +6,10 @@ let turn = 0
 let isGameOver = false
 let reset = document.getElementById("reset")
 
+// Set volume of background music
+let backgroundMusic = document.getElementById("backgroundMusic")
+backgroundMusic.volume = .3
+
 // Reset button
 reset.addEventListener("click", () => {
     location.reload()
@@ -17,6 +21,7 @@ function displayWinner(index) {
     let applause = document.getElementById("applause")
     applause.volume = .3
     applause.play()
+    backgroundMusic.pause()
     isGameOver = true
 }
 
@@ -58,12 +63,14 @@ boxes.forEach(box => {
             displayWinner(2)
         } else if(turn === 9) {
             winnerDisplay.textContent = "It's a tie!"
+            let crowdCry = document.getElementById("crowdCry")
+            crowdCry.volume = .4
+            crowdCry.play()
+            backgroundMusic.pause()
             isGameOver = true
         }
     })
 })
 
-// Set volume of background music
-let backgroundMusic = document.getElementById("backgroundMusic")
-backgroundMusic.volume = .3
+
 
