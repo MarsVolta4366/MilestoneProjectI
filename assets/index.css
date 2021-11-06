@@ -14,7 +14,6 @@
 }
 
 body {
-    /* background-color: var(--background); */
     background: linear-gradient(-45deg, #8b2303, #49192c, var(--background), #005742);
     background-size: 400% 400%;
     animation: gradient 15s cubic-bezier(0.3, 0.23, 1, 0.62) infinite;
@@ -32,7 +31,6 @@ body {
 		background-position: 0% 50%;
 	}
 }
-
 
 #title {
     text-align: center;
@@ -57,8 +55,8 @@ body {
 #gameContainer {
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 33.333333333333% 33.333333333333% 33.333333333333%;
-    grid-template-rows: 33.333333333333% 33.333333333333% 33.333333333333%;
+    grid-template-columns: 33.3333% 33.3333% 33.3333%;
+    grid-template-rows: 33.3333% 33.3333% 33.3333%;
     max-width: 300px;
 }
 

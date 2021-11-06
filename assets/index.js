@@ -10,7 +10,7 @@ let reset = document.getElementById("reset")
 let backgroundMusic = document.getElementById("backgroundMusic")
 backgroundMusic.volume = .3
 
-// Reset button
+// Reset button logic
 reset.addEventListener("click", () => {
     location.reload()
 })
@@ -25,7 +25,7 @@ function displayWinner(index) {
     isGameOver = true
 }
 
-// Fill box with approriate text based on player, switch to other players turn
+// Fill box with approriate text based on player, switch to other players turn, call checkForWinner()
 function boxClicked(box) {
     let boxText = isPlayerXsTurn ? "X":"O"
     let boxTextColor = isPlayerXsTurn ? "var(--x)":"var(--o)"
