@@ -1,5 +1,3 @@
-// Remember to make commits!
-// Add readme file description or whatever it says in canvas prompt
 let boxes = document.querySelectorAll(".box")
 let isPlayerXsTurn = true
 let playerSpan = document.getElementById("playerSpan")

@@ -14,8 +14,25 @@
 }
 
 body {
-    background-color: var(--background);
+    /* background-color: var(--background); */
+    background: linear-gradient(-45deg, #8b2303, #49192c, #00076d, #005742);
+    background-size: 400% 400%;
+    animation: gradient 15s cubic-bezier(0.3, 0.23, 1, 0.62) infinite;
+    height: 100vh;
 }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 
 #title {
     text-align: center;
