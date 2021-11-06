@@ -43,6 +43,7 @@ function boxClicked(box) {
     checkForWinner()
 }
 
+// Highlight winning boxes green and flash three times
 function highlightWinningBoxes(box1, box2, box3) {
     boxes[box1].style.background = "#148f34"
     boxes[box1].classList.add("winner")
