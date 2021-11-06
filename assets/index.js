@@ -45,8 +45,11 @@ function boxClicked(box) {
 
 function highlightWinningBoxes(box1, box2, box3) {
     boxes[box1].style.background = "#148f34"
+    boxes[box1].classList.add("winner")
     boxes[box2].style.background = "#148f34"
+    boxes[box2].classList.add("winner")
     boxes[box3].style.background = "#148f34"
+    boxes[box3].classList.add("winner")
 }
 
 // Check for winner or tie and display if found
