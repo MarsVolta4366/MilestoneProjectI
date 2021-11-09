@@ -29,6 +29,24 @@ resetScores.addEventListener("click", () => {
     location.reload()
 })
 
+// If amount of games is even, let X have first turn, if odd let O have first turn
+let amountOfGames = 0
+if(localStorage.xScore) {
+    amountOfGames += Number(localStorage.xScore)
+}
+
+if(localStorage.oScore) {
+    amountOfGames += Number(localStorage.oScore)
+}
+
+if(amountOfGames%2 !== 0) {
+    console.log("O's turn")
+    isPlayerXsTurn = false
+    playerSpan.classList.remove("playerX")
+    playerSpan.classList.add("playerO")
+    playerSpan.textContent = "O"
+}
+
 // Display current scores
 function displayScores() {
     let xScore = document.getElementById("xScore")
