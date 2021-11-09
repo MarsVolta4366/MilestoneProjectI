@@ -9,10 +9,6 @@ let resetScores = document.getElementById("resetScores")
 
 displayScores()
 
-// Set volume of background music
-let backgroundMusic = document.getElementById("backgroundMusic")
-backgroundMusic.volume = .3
-
 // Reset button logic
 reset.addEventListener("click", () => {
     location.reload()
@@ -40,7 +36,6 @@ if(localStorage.oScore) {
 }
 
 if(amountOfGames%2 !== 0) {
-    console.log("O's turn")
     isPlayerXsTurn = false
     playerSpan.classList.remove("playerX")
     playerSpan.classList.add("playerO")
@@ -83,7 +78,6 @@ function displayWinner(index) {
     let applause = document.getElementById("applause")
     applause.volume = .3
     applause.play()
-    backgroundMusic.pause()
     isGameOver = true
     updateScore(boxes[index].textContent)
 }
@@ -147,7 +141,6 @@ function checkForWinner() {
             let crowdCry = document.getElementById("crowdCry")
             crowdCry.volume = .4
             crowdCry.play()
-            backgroundMusic.pause()
             isGameOver = true
         }
 }
