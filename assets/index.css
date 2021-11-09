@@ -32,9 +32,16 @@ body {
 	}
 }
 
+#sound {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    color: var(--text);
+}
+
 #title {
     text-align: center;
-    margin: 5%;
+    margin: 3%;
     font-size: 30px;
 }
 
@@ -84,7 +91,7 @@ body {
 
 #reset {
     display: block;
-    margin: 5% auto;
+    margin: 3% auto;
     padding: 10px;
     font-size: 20px;
     background-color: var(--reset);
@@ -113,4 +120,8 @@ body {
 	100% {
         background-color: #148f34;
 	}
+}
+
+.hide {
+    display: none;
 }

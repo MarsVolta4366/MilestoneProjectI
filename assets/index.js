@@ -6,6 +6,8 @@ let turn = 0
 let isGameOver = false
 let reset = document.getElementById("reset")
 let resetScores = document.getElementById("resetScores")
+let applause = document.getElementById("applause")
+let crowdCry = document.getElementById("crowdCry")
 
 displayScores()
 
@@ -75,7 +77,6 @@ function updateScore(winner) {
 // Display winner and end game
 function displayWinner(index) {
     winnerDisplay.textContent = `${boxes[index].textContent} wins!`
-    let applause = document.getElementById("applause")
     applause.volume = .3
     applause.play()
     isGameOver = true
@@ -138,7 +139,6 @@ function checkForWinner() {
             highlightWinningBoxes(2, 4, 6)
         } else if(turn === 9) {
             winnerDisplay.textContent = "It's a tie!"
-            let crowdCry = document.getElementById("crowdCry")
             crowdCry.volume = .4
             crowdCry.play()
             isGameOver = true
@@ -154,5 +154,30 @@ boxes.forEach(box => {
     })
 })
 
+// Sound button
+let turnSoundOff = document.getElementById("turnSoundOff")
+let turnSoundOn = document.getElementById("turnSoundOn")
 
+function muteSound() {
+    applause.muted = true 
+    crowdCry.muted = true
+    localStorage.isMuted = true
+    turnSoundOff.classList.add("hide")
+    turnSoundOn.classList.remove("hide")
+}
 
+if(localStorage.isMuted) {
+    muteSound()
+}
+
+turnSoundOff.addEventListener("click", () => {
+    muteSound()
+})
+
+turnSoundOn.addEventListener("click", () => {
+    localStorage.removeItem("isMuted")
+    turnSoundOn.classList.add("hide")
+    turnSoundOff.classList.remove("hide")
+    applause.muted = false 
+    crowdCry.muted = false
+})
