@@ -14,23 +14,28 @@
 }
 
 body {
-    background: linear-gradient(-45deg, #8b2303, #49192c, var(--background), #005742);
-    background-size: 400% 400%;
-    animation: gradient 15s cubic-bezier(0.3, 0.23, 1, 0.62) infinite;
+    animation: change 40s cubic-bezier(0.3, 0.23, 1, 0.62) infinite;
+    animation-direction: alternate;
     height: 100vh;
     overflow: hidden;
 }
 
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+@keyframes change {
+    0% {
+        background: var(--background);
+    }
+    25% {
+        background: #49192c;
+    }
+    50% {
+        background: #451949;
+    }
+    75% {
+        background: #2f1949;
+    }
+    100% {
+        background: #000157;
+    }
 }
 
 #sound {
