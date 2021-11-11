@@ -8,6 +8,7 @@ let reset = document.getElementById("reset")
 let resetScores = document.getElementById("resetScores")
 let applause = document.getElementById("applause")
 let crowdCry = document.getElementById("crowdCry")
+let clickSound = document.getElementById("click")
 
 displayScores()
 
@@ -85,6 +86,8 @@ function displayWinner(index) {
 
 // Fill box with approriate text based on player, switch to other players turn, call checkForWinner()
 function boxClicked(box) {
+    clickSound.currentTime = 0
+    clickSound.play()
     let boxText = isPlayerXsTurn ? "X":"O"
     let boxTextColor = isPlayerXsTurn ? "var(--x)":"var(--o)"
     let boxClassToRemove = isPlayerXsTurn ? "playerX":"playerO"
@@ -161,6 +164,7 @@ let turnSoundOn = document.getElementById("turnSoundOn")
 function muteSound() {
     applause.muted = true 
     crowdCry.muted = true
+    clickSound.muted = true
     localStorage.isMuted = true
     turnSoundOff.classList.add("hide")
     turnSoundOn.classList.remove("hide")
@@ -180,4 +184,5 @@ turnSoundOn.addEventListener("click", () => {
     turnSoundOff.classList.remove("hide")
     applause.muted = false 
     crowdCry.muted = false
+    clickSound.muted = false
 })
