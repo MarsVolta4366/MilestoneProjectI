@@ -6,4 +6,4 @@ I originally was planning to build a simple trivia game but was inspired to buil
 
 One piece of functionality I would like to implement is to make it so the reset button resets the game without reloading the whole page.
 
-This game was built using HTMl, CSS, Google Fonts, Font Awesome, and JavaScript.
+This game was built using HTML, CSS, Google Fonts, Font Awesome, and JavaScript.
