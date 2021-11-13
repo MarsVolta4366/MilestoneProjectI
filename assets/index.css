@@ -38,6 +38,14 @@ body {
     }
 }
 
+#turnSoundOff {
+    cursor: pointer;
+}
+
+#turnSoundOn {
+    cursor: pointer;
+}
+
 #sound {
     text-align: center;
     margin-top: 20px;
