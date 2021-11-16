@@ -4,6 +4,6 @@ If all boxes are filled and neither player won, the game results in a tie. Click
 
 I originally was planning to build a simple trivia game but was inspired to build tic tac toe because I thought it would offer a little more challenge and I wanted to see if I could do it.
 
-One piece of functionality I would like to implement is to make it so the reset button resets the game without reloading the whole page.
+One piece of functionality I would like to implement is to make it so the reset button resets the game without reloading the whole page. I'd also like to make it so the starting player switches on a tie because right now it doesn't.
 
 This game was built using HTML, CSS, Google Fonts, Font Awesome, and JavaScript.
