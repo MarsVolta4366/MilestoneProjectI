@@ -1,0 +1,157 @@
+// TO COMPILE: sass assets/scss/style.scss assets/css/style.css
+@use "variables";
+@use "mixins";
+@use "functions";
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: variables.$fonts;
+    color: variables.$textColor;
+}
+
+body {
+    animation: change 40s cubic-bezier(0.3, 0.23, 1, 0.62) infinite;
+    animation-direction: alternate;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@keyframes change {
+    $percent: 0%;
+    $colors: functions.generateColors(variables.$backgroundColor);
+
+    @each $color in $colors {
+        #{$percent} {
+            background: $color;
+        }
+
+        $percent: $percent+25%;
+    }
+
+    // @Warn is highlighted red because of IDE problem, this scss compiles and works properly
+    @if length($list: $colors) !=5 {
+        @warn "Colors list should contain 5 colors";
+    }
+}
+
+#container {
+    #sound {
+        @include mixins.textAlignCenter;
+        margin-top: 20px;
+        font-size: 20px;
+        color: variables.$textColor;
+
+        #turnSoundOff,
+        #turnSoundOn {
+            cursor: pointer;
+
+            &:hover {
+                color: variables.$soundButtonHoverColor;
+            }
+        }
+    }
+
+    #title {
+        @include mixins.titleTextCentered;
+        margin: 3%;
+    }
+
+    #scores {
+        @include mixins.mediumTextCentered;
+    }
+
+    #playerDisplay {
+        @include mixins.mediumTextCentered;
+        margin: 1%;
+
+        .playerX {
+            color: variables.$playerXColor;
+        }
+
+        .playerO {
+            color: variables.$playerOColor;
+        }
+    }
+
+    #gameContainer {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 33.3333% 33.3333% 33.3333%;
+        grid-template-rows: 33.3333% 33.3333% 33.3333%;
+        max-width: 300px;
+
+        .box {
+            border: 1px solid variables.$textColor;
+            min-width: 100px;
+            min-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            cursor: pointer;
+        }
+    }
+
+    #winnerDisplay {
+        @include mixins.titleTextCentered;
+        margin: 10px;
+    }
+
+    #reset {
+        display: block;
+        margin: 3% auto;
+        padding: 10px;
+        font-size: 20px;
+        background-color: variables.$resetButtonColor;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: variables.$resetButtonHoverColor;
+        }
+    }
+
+    #resetScores {
+        display: block;
+        margin: auto;
+        background: none;
+        border: none;
+        font-size: variables.$smallFontSize;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+footer {
+    text-align: variables.$textAlign;
+    margin-top: 20px;
+    font-size: variables.$smallFontSize;
+}
+
+.winner {
+    animation: pulse 1s ease-in-out 3;
+}
+
+@keyframes pulse {
+    $winningBoxColor: #278841;
+
+    $lighterWinningBoxColor: functions.generateLighterColor($winningBoxColor);
+
+    0% {
+        background-color: #278841;
+    }
+
+    50% {
+        background-color: $lighterWinningBoxColor;
+    }
+
+    100% {
+        background-color: #278841;
+    }
+}
+
+.hide {
+    display: none;
+}

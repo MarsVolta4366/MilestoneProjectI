@@ -1,0 +1,13 @@
+@function generateColors($startingColor) {
+    $listOfColors: $startingColor;
+
+    @for $i from 1 through 4 {
+        $listOfColors: append($listOfColors, adjust-hue(nth($listOfColors, $i), 25));
+    }
+
+    @return $listOfColors;
+}
+
+@function generateLighterColor($color) {
+    @return lighten($color, 15%);
+}

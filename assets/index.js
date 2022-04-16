@@ -89,7 +89,7 @@ function boxClicked(box) {
     clickSound.currentTime = 0
     clickSound.play()
     let boxText = isPlayerXsTurn ? "X":"O"
-    let boxTextColor = isPlayerXsTurn ? "var(--x)":"var(--o)"
+    let boxTextColor = isPlayerXsTurn ? "#98DFEA":"#07BEB8"
     let boxClassToRemove = isPlayerXsTurn ? "playerX":"playerO"
     let boxClassToAdd = isPlayerXsTurn ? "playerO":"playerX"
     let playerSpanText = !isPlayerXsTurn ? "X":"O"

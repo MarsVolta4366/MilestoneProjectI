@@ -1,0 +1,15 @@
+@use "variables";
+
+@mixin textAlignCenter {
+    text-align: variables.$textAlign;
+}
+
+@mixin mediumTextCentered {
+    font-size: variables.$mediumFontSize;
+    text-align: variables.$textAlign;
+}
+
+@mixin titleTextCentered {
+    font-size: variables.$titleFontSize;
+    text-align: variables.$textAlign;
+}
